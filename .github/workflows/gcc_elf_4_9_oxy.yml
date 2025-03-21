@@ -1,4 +1,4 @@
-name: Kernel Builder Clang For Kernel 4.9 Oxy
+name: Builder Clang For 4.9 Oxy
 
 on:
   workflow_dispatch:
