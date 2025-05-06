@@ -184,8 +184,7 @@ jobs:
             LLVM_IAS=1 \
             V=0
             2>&1 | tee build-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
-
-       zip 
+ 
 
     - name: Zipping Kernel
       working-directory: android/
