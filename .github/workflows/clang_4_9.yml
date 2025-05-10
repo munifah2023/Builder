@@ -208,6 +208,8 @@ jobs:
     - name: Building Kernel With Clang
       working-directory: android/kernel
       run: |
+       echo 'KBUILD_CFLAGS += -Wno-default-const-init-unsafe' >> Makefile
+       echo "Custom Makefile line added successfully"
        rm -rf out
        mkdir -p out
        export USE_CCACHE=1 
