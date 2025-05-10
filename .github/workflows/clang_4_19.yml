@@ -213,7 +213,7 @@ jobs:
           android/kernel/out/arch/arm64/boot/dts/*.dtb
           android/kernel/out/arch/arm64/boot/dts/*.img
           android/AnyKernel/${{ github.event.inputs.ZIP_NAME }}-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.zip
-          android/kernel/build-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
+          android/kernel/build-short-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
         name: Kernel Build | ${{ env.BUILD_DATE }}
         tag_name: ${{ github.run_id }}
         body: |
