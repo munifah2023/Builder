@@ -31,7 +31,7 @@ on:
       CLANG_URL:
         description: 'Clang Url'
         required: true
-        default: 'https://raw.githubusercontent.com/ZyCromerZ/Clang/main/Clang-main-link.txt'
+        default: 'https://raw.githubusercontent.com/ZyCromerZ/Clang/main-16-link.txt'
    #   AARCH64_URL:
   #      description: 'Arrch64-GCC'
   #      required: true
@@ -179,13 +179,13 @@ jobs:
           rm -rf drivers/KernelSU
           rm -rf drivers/staging/KernelSU-Next
           rm -rf drivers/KernelSU-Next
-          curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+          curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s
           echo -e "CONFIG_KPROBES=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           echo -e "CONFIG_KSU_SUSFS_SUS_SU=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           echo -e "CONFIG_KSU=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           echo -e "CONFIG_KSU_DEBUG=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           echo -e "CONFIG_WITH_KPROBES=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
-          echo -e "CONFIG_KSU_ALLOWLIST_WORKAROUND=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
+          echo -e "CONFIG_KSU_ALLOWLIST_WORKAROUND=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           cat arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
       continue-on-error: true    
       
