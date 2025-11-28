@@ -177,7 +177,7 @@ jobs:
             vendor/feature/lmkd.config \
             vendor/feature/wireguard.config \           	
             vendor/feature/custom_kernel.config \
-            vendor/feature/ksu_static_hooks.config
+            vendor/feature/ksu_static_hooks.config \
 
        make ARCH=arm64 O=out CC=$CC -j$(nproc --all) \
             LLVM=1 \
