@@ -175,18 +175,13 @@ jobs:
             vendor/feature/exfat.config \
             vendor/feature/ntfs.config \
             vendor/feature/lmkd.config \
-            vendor/feature/wireguard.config \           	
+            vendor/feature/wireguard.config \
             vendor/feature/custom_kernel.config \
-            vendor/feature/ksu_static_hooks.config \
+            vendor/feature/ksu_static_hooks.config
        make ARCH=arm64 O=out CC=$CC -j$(nproc --all) \
             LLVM=1 \
             LLVM_IAS=1 \
-            2>&1 | grep -iE "error|warning" | tee build-short-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
-       
-      # make ARCH=arm64 O=out CC=$CC -j$(nproc --all) \
-      #      LLVM=1 \
-      #      LLVM_IAS=1 \
-      #      2>&1 | tee build-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
+            2>&1 | tee build-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
        
 
     - name: Zipping Kernel
@@ -212,7 +207,7 @@ jobs:
           android/kernel/out/arch/arm64/boot/dts/*.dtb
           android/kernel/out/arch/arm64/boot/dts/*.img
           android/AnyKernel/${{ github.event.inputs.ZIP_NAME }}-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.zip
-          android/kernel/build-short-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
+          android/kernel/build-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
         name: Kernel Build | ${{ env.BUILD_DATE }}
         tag_name: ${{ github.run_id }}
         body: |
