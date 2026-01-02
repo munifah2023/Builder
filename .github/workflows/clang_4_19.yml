@@ -178,8 +178,8 @@ jobs:
             vendor/feature/wireguard.config \
             vendor/feature/custom_kernel.config
        make ARCH=arm64 O=out CC=$CC -j$(nproc --all) \
-            LLVM=1 \
-            LLVM_IAS=1 \
+            LLVM=0 \
+            LLVM_IAS=0 \
             2>&1 | tee build-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
        
 
