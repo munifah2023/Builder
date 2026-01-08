@@ -214,6 +214,7 @@ jobs:
       run: |
        rm -rf out
        mkdir -p out
+       echo -e "CONFIG_KPROBES=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
        export USE_CCACHE=1 
        export CCACHE_COMPRESS=1 
        export CCACHE_MAXSIZE=50G 
