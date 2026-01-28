@@ -32,7 +32,7 @@ on:
       CLANG_URL:
         description: 'Clang Url'
         required: true
-        default: 'https://raw.githubusercontent.com/ZyCromerZ/Clang/main/Clang-main-link.txt'
+        default: 'https://raw.githubusercontent.com/ZyCromerZ/Clang/refs/heads/main/Clang-16-link.txt'
    #   AARCH64_URL:
   #      description: 'Arrch64-GCC'
   #      required: true
