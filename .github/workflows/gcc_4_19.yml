@@ -35,11 +35,11 @@ on:
       AARCH64_URL:
         description: 'Arrch64-GCC'
         required: true
-        default: 'https://github.com/greenforce-project/gcc-arm64 -b main'
+        default: 'https://github.com/greenforce-project/gcc-arm64 -b 20260221'
       ARM_LINUX_URL:
         description: 'ARM-LINUX-GNU'
         required: true
-        default: 'https://github.com/greenforce-project/gcc-arm -b main'
+        default: 'https://github.com/greenforce-project/gcc-arm -b 20260221'
       WITH_KERNEL_SU:
         description: 'With kernelsu?, Dont activate it if the kernel doesnt support it '
         required: true
