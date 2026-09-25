@@ -241,8 +241,7 @@ jobs:
             vendor/feature/custom_kernel.config \
             vendor/feature/ksu_static_hooks.config
 
-        echo -e "CONFIG_DEVFREQ_BOOST=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
-        make ARCH=arm64 O=out -j$(nproc --all) \
+            make ARCH=arm64 O=out -j$(nproc --all) \
             2>&1 | tee build-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
 
       # make ARCH=arm64 O=out -j$(nproc --all) \
