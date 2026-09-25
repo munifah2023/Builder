@@ -190,6 +190,7 @@ jobs:
           echo -e "CONFIG_KSU_SYSCALL_TABLE_HOOK=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }} 
           cat arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           ls -l
+          curl https://raw.githubusercontent.com/maxsteeel/nomount/refs/heads/dev/kernel/setup.sh | bash -  
       continue-on-error: true    
       
 #    - name: Notify in Telegram
@@ -239,7 +240,8 @@ jobs:
             vendor/feature/wireguard.config \
             vendor/feature/custom_kernel.config \
             vendor/feature/ksu_static_hooks.config
-        
+
+        echo -e "CONFIG_DEVFREQ_BOOST=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
         make ARCH=arm64 O=out -j$(nproc --all) \
             2>&1 | tee build-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
 
