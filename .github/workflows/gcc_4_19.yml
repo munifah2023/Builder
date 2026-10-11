@@ -152,7 +152,7 @@ jobs:
        wget -qO gcc64.tar.gz ${{ github.event.inputs.AARCH64_URL }}
        tar -xzf gcc64.tar.gz -C ${GITHUB_WORKSPACE}/android/aarch64-gcc/
        echo "check folder gcc"
-       ls -l ${GITHUB_WORKSPACE}/android/aarch64-gcc/
+       ls -a ${GITHUB_WORKSPACE}/android/aarch64-gcc/
        rm -f *.gz   
     - name: Clone aarch32-gcc
       working-directory: android/
@@ -161,7 +161,7 @@ jobs:
        wget -qO gcc32.tar.gz ${{ github.event.inputs.ARM_LINUX_URL }}
        tar -xzf gcc32.tar.gz -C ${GITHUB_WORKSPACE}/android/aarch32-gcc/
        echo "check folder gcc"
-       ls -l ${GITHUB_WORKSPACE}/android/aarch32-gcc/
+       ls -a ${GITHUB_WORKSPACE}/android/aarch32-gcc/
        rm -f *.gz      
     - name: Clone kernel tree
       working-directory: android/
@@ -193,7 +193,7 @@ jobs:
           echo -e "CONFIG_KSU_KPROBES_HOOK=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           echo -e "CONFIG_KSU_SYSCALL_TABLE_HOOK=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }} 
           cat arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
-          ls -l
+          ls -a
           curl https://raw.githubusercontent.com/maxsteeel/nomount/refs/heads/dev/kernel/setup.sh | bash -  
       continue-on-error: true    
       
@@ -228,8 +228,8 @@ jobs:
        export CROSS_COMPILE="${GITHUB_WORKSPACE}/android/aarch64-gcc/bin/aarch64-linux-gnu-"
        export CROSS_COMPILE_ARM32="${GITHUB_WORKSPACE}/android/aarch32-gcc/arm-linux-gnueabi-"
        echo "find gcc dir"
-       ls -l ${GITHUB_WORKSPACE}/android/aarch64-gcc/bin
-       ls -l ${GITHUB_WORKSPACE}/android/aarch32-gcc/bin
+       ls -a ${GITHUB_WORKSPACE}/android/aarch64-gcc/
+       ls -a ${GITHUB_WORKSPACE}/android/aarch32-gcc/
        echo "next cooking"
        make ARCH=arm64 O=out ${{ github.event.inputs.KERNEL_DEFCONFIG }}  \
        scripts/kconfig/merge_config.sh -O out/.config \
