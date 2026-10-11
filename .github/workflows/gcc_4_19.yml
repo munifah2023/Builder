@@ -148,16 +148,18 @@ jobs:
     - name: Clone aarch64-gcc
       working-directory: android/
       run: |
-       mkdir -p aarch64-gcc && cd aarch64-gcc
+       mkdir -p aarch64-gcc
        wget ${{ github.event.inputs.AARCH64_URL }}
-       tar -xvzf *.gz 
+       tar -xvzf *.gz -C aarch64-gcc
+       ls -l aarch64-gcc
        rm -f *.gz   
     - name: Clone aarch32-gcc
       working-directory: android/
       run: |
-       mkdir -p aarch32-gcc && cd aarch32-gcc
+       mkdir -p aarch32-gcc
        wget ${{ github.event.inputs.ARM_LINUX_URL }}
-       tar -xvzf *.gz
+       tar -xvzf *.gz -C aarch32-gcc
+       ls -l aarch32-gcc
        rm -f *.gz      
     - name: Clone kernel tree
       working-directory: android/
