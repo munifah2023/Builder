@@ -70,8 +70,8 @@ jobs:
         echo "Kernel URL: ${{ github.event.inputs.KERNEL_URL }}"
         echo "Kernel BRANCH: ${{ github.event.inputs.KERNEL_BRANCH }}"
         echo "Kernel Defconfig: ${{ github.event.inputs.KERNEL_DEFCONFIG }}"
-        echo "AARCH64_URL: ${{ github.event.inputs.AARCH64_URL }}"
-        echo "ARM_LINUX_URL: ${{ github.event.inputs.ARM_LINUX_URL }}"
+#        echo "AARCH64_URL: ${{ github.event.inputs.AARCH64_URL }}"
+#        echo "ARM_LINUX_URL: ${{ github.event.inputs.ARM_LINUX_URL }}"
         echo "With Kernelsu?: ${{ github.event.inputs.WITH_KERNEL_SU }}"
         echo "Zip name: ${{ github.event.inputs.ZIP_NAME }}"
         echo "Downloading AnyKernel: ${{ github.event.inputs.ANYKERNEL_URL }}"
@@ -131,9 +131,9 @@ jobs:
       run: |
        mkdir -p android && cd android
        # wget https://github.com/cumaRull/Action-Kernel-Builder/blob/master/image/tridentnotdeath.png
-#       git clone --depth=1 ${{ github.event.inputs.AARCH64_URL }} aarch64-gcc
        curl -sSL https://github.com/prepkg/gcc-toolchain/releases/latest/download/gcc-aarch64-linux-gnu.tar.gz | sudo tar xz -C aarch64-gcc
        curl -sSL https://github.com/prepkg/gcc-toolchain/releases/latest/download/gcc-arm-linux-gnueabi.tar.gz | sudo tar xz -C aarch32-gcc
+#       git clone --depth=1 ${{ github.event.inputs.AARCH64_URL }} aarch64-gcc
 #       ls -l aarch64-gcc
 #       git clone --depth=1 ${{ github.event.inputs.ARM_LINUX_URL }} aarch32-gcc
 #       ls -l aarch32-gcc
