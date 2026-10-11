@@ -225,9 +225,10 @@ jobs:
        export PATH="${GITHUB_WORKSPACE}/android/aarch64-gcc/bin:${PATH}"
        export CROSS_COMPILE="${GITHUB_WORKSPACE}/android/aarch64-gcc/bin/aarch64-linux-gnu-"
        export CROSS_COMPILE_ARM32="${GITHUB_WORKSPACE}/android/aarch32-gcc/arm-linux-gnueabi-"
-       ls -l ${GITHUB_WORKSPACE}/android/aarch64-gcc
-       ls -l ${GITHUB_WORKSPACE}/android/aarch32-gcc
-       ls -l android/
+       echo "find gcc dir"
+       ls -l ${GITHUB_WORKSPACE}/android/aarch64-gcc/bin
+       ls -l ${GITHUB_WORKSPACE}/android/aarch32-gcc/bin
+       echo "next cooking"
        make ARCH=arm64 O=out ${{ github.event.inputs.KERNEL_DEFCONFIG }}  \
        scripts/kconfig/merge_config.sh -O out/.config \
             vendor/msm8937-legacy.config \
