@@ -149,17 +149,17 @@ jobs:
       working-directory: android/
       run: |
        mkdir -p aarch64-gcc
-       wget ${{ github.event.inputs.AARCH64_URL }}
-       tar -xvzf *.gz -C aarch64-gcc
-       ls -l aarch64-gcc
+       curl -sSL ${{ github.event.inputs.AARCH64_URL }} | tar -xvzf -C ${GITHUB_WORKSPACE}/android/aarch64-gcc/
+       echo "check folder gcc"
+       ls -l ${GITHUB_WORKSPACE}/android/aarch64-gcc/
        rm -f *.gz   
     - name: Clone aarch32-gcc
       working-directory: android/
       run: |
        mkdir -p aarch32-gcc
-       wget ${{ github.event.inputs.ARM_LINUX_URL }}
-       tar -xvzf *.gz -C aarch32-gcc
-       ls -l aarch32-gcc
+       curl -sSL ${{ github.event.inputs.ARM_LINUX_URL }} | tar -xvzf -C ${GITHUB_WORKSPACE}/android/aarch32-gcc/
+       echo "check folder gcc"
+       ls -l ${GITHUB_WORKSPACE}/android/aarch32-gcc/
        rm -f *.gz      
     - name: Clone kernel tree
       working-directory: android/
