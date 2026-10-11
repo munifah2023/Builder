@@ -149,7 +149,8 @@ jobs:
       working-directory: android/
       run: |
        mkdir -p aarch64-gcc
-       wget -O gcc64.tar.gz ${{ github.event.inputs.AARCH64_URL }} | tar -xvzf gcc64.tar.gz -C ${GITHUB_WORKSPACE}/android/aarch64-gcc/
+       wget -qO- gcc64.tar.gz ${{ github.event.inputs.AARCH64_URL }}
+       tar -xzf gcc64.tar.gz -C ${GITHUB_WORKSPACE}/android/aarch64-gcc/
        echo "check folder gcc"
        ls -l ${GITHUB_WORKSPACE}/android/aarch64-gcc/
        rm -f *.gz   
@@ -157,7 +158,8 @@ jobs:
       working-directory: android/
       run: |
        mkdir -p aarch32-gcc
-       wget -O gcc32.tar.gz ${{ github.event.inputs.ARM_LINUX_URL }} | tar -xvzf gcc32.tar.gz -C ${GITHUB_WORKSPACE}/android/aarch32-gcc/
+       wget -qO- gcc32.tar.gz ${{ github.event.inputs.ARM_LINUX_URL }}
+       tar -xzf gcc32.tar.gz -C ${GITHUB_WORKSPACE}/android/aarch32-gcc/
        echo "check folder gcc"
        ls -l ${GITHUB_WORKSPACE}/android/aarch32-gcc/
        rm -f *.gz      
