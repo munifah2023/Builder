@@ -32,14 +32,14 @@ on:
 #        description: 'Clang Url'
 #        required: true
 #        default: 'https://raw.githubusercontent.com/ZyCromerZ/Clang/main/Clang-main-link.txt'
-      AARCH64_URL:
-        description: 'Arrch64-GCC'
-        required: true
-        default: 'https://github.com/greenforce-project/gcc-arm64 -b 20260221'
-      ARM_LINUX_URL:
-        description: 'ARM-LINUX-GNU'
-        required: true
-        default: 'https://github.com/greenforce-project/gcc-arm -b 20260221'
+#      AARCH64_URL:
+#        description: 'Arrch64-GCC'
+#        required: true
+#        default: 'https://github.com/greenforce-project/gcc-arm64 -b 20260221'
+#      ARM_LINUX_URL:
+#        description: 'ARM-LINUX-GNU'
+#        required: true
+#        default: 'https://github.com/greenforce-project/gcc-arm -b 20260221'
       WITH_KERNEL_SU:
         description: 'With kernelsu?, Dont activate it if the kernel doesnt support it '
         required: true
@@ -131,10 +131,12 @@ jobs:
       run: |
        mkdir -p android && cd android
        # wget https://github.com/cumaRull/Action-Kernel-Builder/blob/master/image/tridentnotdeath.png
-       git clone --depth=1 ${{ github.event.inputs.AARCH64_URL }} aarch64-gcc
-       ls -l aarch64-gcc
-       git clone --depth=1 ${{ github.event.inputs.ARM_LINUX_URL }} aarch32-gcc
-       ls -l aarch32-gcc
+#       git clone --depth=1 ${{ github.event.inputs.AARCH64_URL }} aarch64-gcc
+       curl -sSL https://github.com/prepkg/gcc-toolchain/releases/latest/download/gcc-aarch64-linux-gnu.tar.gz | sudo tar xz -C aarch64-gcc
+       curl -sSL https://github.com/prepkg/gcc-toolchain/releases/latest/download/gcc-arm-linux-gnueabi.tar.gz | sudo tar xz -C aarch64-gcc
+#       ls -l aarch64-gcc
+#       git clone --depth=1 ${{ github.event.inputs.ARM_LINUX_URL }} aarch32-gcc
+#       ls -l aarch32-gcc
        
      #  git clone --depth=1 ${{ github.event.inputs.CLANG_URL }} ./clang
        
