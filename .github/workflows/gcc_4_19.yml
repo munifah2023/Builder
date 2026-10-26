@@ -191,7 +191,8 @@ jobs:
           DRIVER_DIR="drivers"
           ln -sf $(realpath --relative-to="$DRIVER_DIR" "KernelSU-Next/kernel") "$DRIVER_DIR/kernelsu"
           grep -q "kernelsu" "$DRIVER_DIR/Makefile" || printf "\nobj-\$(CONFIG_KSU) += kernelsu/\n" >> "$DRIVER_DIR/Makefile"
-          grep -q "source \"drivers/kernelsu/Kconfig\"" "$DRIVER_DIR/Kconfig" || sed -i "/endmenu/i\source \"drivers/kernelsu/Kconfig\"" "$DRIVER_DIR/Kconfig"        echo -e "CONFIG_KPROBES=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
+          grep -q "source \"drivers/kernelsu/Kconfig\"" "$DRIVER_DIR/Kconfig" || sed -i "/endmenu/i\source \"drivers/kernelsu/Kconfig\"" "$DRIVER_DIR/Kconfig"
+          echo -e "CONFIG_KPROBES=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           echo -e "CONFIG_KSU=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           echo -e "CONFIG_KSU_MANUAL_HOOK=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           echo -e "CONFIG_KSU_KPROBES_HOOK=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
