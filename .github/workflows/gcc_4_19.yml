@@ -187,8 +187,8 @@ jobs:
           rm -rf drivers/KernelSU
           rm -rf drivers/staging/KernelSU-Next
           rm -rf drivers/KernelSU-Next
-          git config user.email "149413601+munifah2023@users.noreply.github.com"
-          git config user.name "munifah3023"
+          git config --global user.email "149413601+munifah2023@users.noreply.github.com"
+          git config --global user.name "munifah3023"
           curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s legacy
           cd KernelSU-Next
           curl -L https://github.com/omrxm18/KernelSU-Next/commit/4d5d7b92c8d8b528ca3721bfa523d29bae19fc24.patch | git am -3
