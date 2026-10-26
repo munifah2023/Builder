@@ -187,6 +187,8 @@ jobs:
           rm -rf drivers/KernelSU
           rm -rf drivers/staging/KernelSU-Next
           rm -rf drivers/KernelSU-Next
+          git config user.email "bot@github.com"
+          git config user.name "GitHub Actions"
           curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s legacy
           curl -L https://github.com/omrxm18/KernelSU-Next/compare/165b87f...3bf5f84.patch | git am -3
           echo -e "CONFIG_KPROBES=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
