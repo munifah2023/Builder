@@ -190,10 +190,6 @@ jobs:
           git config --global user.email "149413601+munifah2023@users.noreply.github.com"
           git config --global user.name "munifah3023"
           curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s legacy
-          cd KernelSU-Next
-          curl -L https://github.com/omrxm18/KernelSU-Next/commit/4d5d7b92c8d8b528ca3721bfa523d29bae19fc24.patch | git am -3
-          curl -L https://github.com/omrxm18/KernelSU-Next/commit/3bf5f84e45f3e8e155be715912b74315a57b825c.patch | git am -3
-          cd ..
           echo -e "CONFIG_KPROBES=n" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           echo -e "CONFIG_KSU=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
           echo -e "CONFIG_KSU_MANUAL_HOOK=y" >> arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}
