@@ -249,8 +249,6 @@ jobs:
             vendor/feature/custom_kernel.config \
             vendor/feature/ksu_static_hooks.config \
             vendor/feature/compat-vdso.config
-        echo -e "CONFIG_ZRAM_DEDUP=n" >> out/.config
-        echo -e "CONFIG_BALANCE_ANON_FILE_RECLAIM=y" >> out/.config
           
             make ARCH=arm64 O=out -j$(nproc --all) \
             2>&1 | tee build-${{ env.BUILD_DATE }}-${{ env.BUILD_TIME }}.log
